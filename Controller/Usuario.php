@@ -52,4 +52,34 @@ public function newUsuario($datos) {
         }
     }
 
+    public function eliminarUsuario($datos)
+    {
+        $objUsuario = new Model_usuario();
+
+        $eliminacion = [];
+
+        $idUsuario = $datos['idusuario'];
+
+        $objUsuario->Buscar($idUsuario);
+
+        if (!empty($objUsuario->getIdUsuario())) {
+
+            if (isset($datos)) {
+
+                // $objRol->setearValores($datos['idrol'], $datos['rodescripcion']); Comentado por ahora fijarse despues
+
+                if ($objUsuario->Eliminar()) {
+                    $eliminacion['eliminar'] = true;
+                } else {
+                    $eliminacion['eliminar'] = false;
+                }
+            }
+            $eliminacion['persona'] = true;
+        } else {
+            $eliminacion['persona'] = false;
+        }
+        return $eliminacion;
+    }
+
+
 }
