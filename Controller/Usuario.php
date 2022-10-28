@@ -42,7 +42,7 @@ public function newUsuario($datos) {
         if (isset($datos)) {
 
             $validacion = false;
-            $objUsuario->setearValores($datos['usnombre'], $datos['uspass'], $datos['usmail'], $datos['usdeshabilitado']);
+            $objUsuario->setearValores($datos['idusuario'], $datos['usnombre'], $datos['uspass'], $datos['usmail'], $datos['usdeshabilitado']);
             
             if ( $objUsuario->Modificar()) {
                 $validacion = true;

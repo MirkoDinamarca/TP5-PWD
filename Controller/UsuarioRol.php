@@ -4,7 +4,7 @@ class UsuarioRol{
 public function newUsuarioRol($datos) {
     $objUsuarioRol = new Model_usuariorol();
     $objUsuario = new Model_usuario();
-    $objUsuario = new Model_rol();
+    $objRol = new Model_rol();
 
     $validacion = [];
 
