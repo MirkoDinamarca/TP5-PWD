@@ -1,5 +1,6 @@
 <?php
-
+include('../templates/header.php');
+include('../configuracion.php');
 $objUsuario = new Usuario();
 $listaUsuario = $objUsuario->buscar();
 
@@ -43,3 +44,7 @@ $listaUsuario = $objUsuario->buscar();
         </table>
     </div>
 </div>
+
+<?php
+include('../templates/footer.php');
+?>

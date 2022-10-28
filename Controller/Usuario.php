@@ -32,7 +32,7 @@ public function newUsuario($datos) {
             }
         }
 
-        $usuario = $objUsuario->listar($where);
+        $usuario = $objUsuario->Listar($where);
         return $usuario;
     }
 
