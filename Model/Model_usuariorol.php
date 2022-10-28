@@ -1,15 +1,18 @@
 <?php
 
 class Model_usuariorol extends BaseDatos {
-    private $objUsuario;
-    private $objRol;
+    private $objUsuario; // Objeto Usuario
+    private $objRol; // Objeto Rol
     private $mensajeOperacion;
 
     public function __construct()
     {
-        $this->objUsuario = "";
-        $this->objRol = "";
         $this->mensajeOperacion = "";
+    }
+
+    public function setearValores($objUsuario, $objRol) {
+        $this->setObjUsuario($objUsuario);
+        $this->setObjRol($objRol);
     }
 
     public function getObjUsuario() {
@@ -67,16 +70,36 @@ class Model_usuariorol extends BaseDatos {
     public function Eliminar() {
         $rta = false;
 
-        $query = "DELETE FROM usuariorol WHERE idusuario=" . $this->getObjUsuario()->getidusuario();
+        $query = "DELETE FROM usuariorol WHERE idusuario=" . $this->getObjUsuario()->getIdUsuario();
 
         if ($this->Iniciar()) {
             if ($this->Ejecutar($query)) {
                 $rta = true;
             } else {
-                $this->getError();
+                $this->setMsjOperacion($this->getError());
             }
         } else {
-            $this->getError();
+            $this->setMsjOperacion($this->getError());
+        }
+    }
+
+    /**
+     * Método para modificar un usuariorol de la BD
+     */
+
+    public function Modificar()
+    {
+        $rta = false;
+        $query = "UPDATE usuariorol SET idrol='" . $this->getObjRol()->getIdRol() . "' WHERE idusuario =" . $this->getObjUsuario()->getIdUsuario();
+
+        if ($this->Iniciar()) {
+            if ($this->Ejecutar($query)) {
+                $rta = true;
+            } else {
+                $this->setMsjOperacion($this->getError());
+            }
+        } else {
+            $this->setMsjOperacion($this->getError());
         }
 
         return $rta;
@@ -114,7 +137,49 @@ class Model_usuariorol extends BaseDatos {
         return $rta;
     }
 
+    /**
+     * Retorna un arreglo de objetos desde la base de datos de la tabla usuariorol
+     * @param parametro Es el parámetro que se pasa al método, que es la condición de la consulta.
+     * @return An array de objetos.
+     * (Probar si funciona)
+     */
+    public function Listar($parametro = '') {
+        $rta = false;
+        $listaUsuarioRol = [];
+
+        $query = "SELECT * FROM usuariorol ";
+
+        if ($parametro != '') {
+            $query .= 'WHERE ' . $parametro;
+        }
+
+        $rta = $this->Ejecutar($query);
+
+        if ($rta > -1) {
+            if ($rta > 0) {
+                while ($row = $this->Registro()) {
+
+                    if ($row['idusuario'] != NULL) {
+                        $objUsuario = new Model_usuario();
+                        $objUsuario->Buscar($row['idusuario']);
+                    }
+
+                    if ($row['idrol'] != NULL) {
+                        $objRol = new Model_rol();
+                        $objRol->Buscar($row['idrol']);
+                    }
+
+                    $objUsuarioRol = new Model_usuariorol();
+                    $objUsuarioRol->Buscar($objUsuario, $objRol);
+
+                    $listaUsuarioRol[] = $objUsuarioRol;
+                }
+            }
+        } else {
+            $this->setMsjOperacion($this->getError());
+        }
+
+        return $listaUsuarioRol;
+    }
+
 }
-
-
-?>
