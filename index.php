@@ -19,7 +19,7 @@
                 <ul class="list-unstyled components mb-5">
 
                     <li>
-                        <a href="#">About</a>
+                        <a href="#">Inicio</a>
                     </li>
                     <li>
                         <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
@@ -28,7 +28,7 @@
                                 <a href="#">Lista</a>
                             </li>
                             <li>
-                                <a href="#">Page 2</a>
+                                <a href="#">No se</a>
                             </li>
                             <li>
                                 <a href="#">Page 3</a>
@@ -36,10 +36,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Portfolio</a>
+                        <a href="#">Roles</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Parámetros</a>
                     </li>
                     <!-- <li class="active">
                         <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Configuración</a>
@@ -92,7 +92,7 @@
                                 <a class="nav-link" href="#">Roles</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Iniciar Sesión</a>
+                                <a class="nav-link" href="View/login.php">Iniciar Sesión</a>
                             </li>
                         </ul>
                     </div>
