@@ -1,6 +1,7 @@
 <?php
-include('../templates/header.php');
-include('../configuracion.php');
+include_once('../configuracion.php');
+include_once('../templates/header.php');
+
 $objUsuario = new Usuario();
 $listaUsuario = $objUsuario->buscar();
 
@@ -8,30 +9,37 @@ $listaUsuario = $objUsuario->buscar();
 
 <div class="m-0 row justify-content-center align-items-center">
 
-    <div class="col-xs-12 col-md-8">
-        <table class="table table-striped">
+    <div class="col-xs-12 col-md-12">
+        <table class="table" style="text-align: center;">
             <thead>
                 <tr style="border-bottom:2px solid black;">
-                    <th scope="col" style="border-radius: 5px 0 0 0;">id usuario</th>
-                    <th scope="col">usuario</th>
-                    <th scope="col">contraseña</th>
-                    <th scope="col" style="border-radius: 0 5px 0 0;">mail</th>
-                    <th scope="col" style="border-radius: 0 5px 0 0;">acciones</th>
-                 
+                    <th scope="col" style="border-radius: 5px 0 0 0;">ID</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col" style="border-radius: 0 5px 0 0;">E-Mail</th>
+                    <th scope="col" style="border-radius: 0 5px 0 0;">Acciones</th>
+
                 </tr>
             </thead>
             <tbody>
-            <?php
+                <?php
                 if (isset($listaUsuario)) {
                     foreach ($listaUsuario as $usuario) :
                 ?>
                         <tr style="border-bottom:2px solid white;">
                             <th scope="row"><?= $usuario->getIdUsuario() ?></th>
                             <td><?= $usuario->getUserNombre() ?></td>
-                            <td><?= $usuario->getUserPass() ?></td>
                             <td><?= $usuario->getUserMail() ?></td>
-                           
-        
+                            <td>
+                                <div>
+                                    <a href="#" class="btnEdit" data-bs-toggle="tooltip" data-bs-placement="left" title="Editar Usuario">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                    <a href="#" class="btnDelete" data-bs-toggle="tooltip" data-bs-placement="right" title="Eliminar Usuario">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                            <!-- <td><i class="fa-regular fa-pen-to-square"></i></td> -->
                         </tr>
                     <?php
                     endforeach;
@@ -46,5 +54,5 @@ $listaUsuario = $objUsuario->buscar();
 </div>
 
 <?php
-include('../templates/footer.php');
+include_once('../templates/footer.php');
 ?>

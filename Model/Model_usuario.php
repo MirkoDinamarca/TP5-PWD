@@ -9,6 +9,7 @@ class Model_usuario extends BaseDatos {
     private $mensajeOperacion;
 
     public function __construct() {
+        parent::__construct();
         $this->idusuario = "";
         $this->usnombre = "";
         $this->uspass = "";
@@ -170,17 +171,14 @@ class Model_usuario extends BaseDatos {
      * (Probar si funciona)
      */
     public function Listar($parametro = '') {
-        $rta = false;
         $listaUsuarios = [];
-
+        
         $query = "SELECT * FROM usuario ";
-
         if ($parametro != '') {
             $query .= 'WHERE ' . $parametro;
         }
 
         $rta = $this->Ejecutar($query);
-
         if ($rta > -1) {
             if ($rta > 0) {
                 while ($row = $this->Registro()) {

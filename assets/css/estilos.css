@@ -1,8 +1,40 @@
 /** Estilos tabla **/
 .table {
-    background: #d5c3d6;
+    background: white !important;
 }
-.estilos {
-    background: #aa7eac;
 
+.estilos {
+    background: red !important;
+}
+
+/* Botones tabla */
+
+.btnEdit {
+    background: #f8b739;
+    padding: 7px;
+    padding-right: 0;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: black;
+}
+.btnEdit:hover {
+    color: black;
+    background: #d49a24;
+}
+
+.btnDelete {
+    background: #f8b739;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 5px;
+    color: black;
+    transition: all .3s ease-in-out;
+}
+.btnDelete:hover {
+    color: black;
+    background: #a32b16;
 }

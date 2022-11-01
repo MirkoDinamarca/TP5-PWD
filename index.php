@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
     <title>Grupo N°9</title>
 </head>
 
@@ -22,10 +24,10 @@
                         <a href="#">Inicio</a>
                     </li>
                     <li>
-                        <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                        <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios<i class="fa-solid fa-angle-down" style="padding-left: 150px;"></i></a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href="#">Lista</a>
+                                <a href="View/listarUsuario.php">Lista Completa</a>
                             </li>
                             <li>
                                 <a href="#">No se</a>
@@ -73,11 +75,11 @@
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa-solid fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars"></i>
+                    <i class="fa-solid fa-bars"></i>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -110,5 +112,7 @@
 
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/fontawesome.min.js"></script>
+<script src="assets/js/all.min.js"></script>
 <script src="assets/js/popper.js"></script>
 <script src="assets/js/main.js"></script>

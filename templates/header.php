@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/estilos.css">
+    <link rel="stylesheet" href="../assets/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/estilos.css">
     <title>Grupo N°9</title>
 </head>
 
@@ -19,13 +21,13 @@
                 <ul class="list-unstyled components mb-5">
 
                     <li>
-                        <a href="#">About</a>
+                        <a href="../index.php">Inicio</a>
                     </li>
                     <li>
-                        <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                        <a href="#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios<i class="fa-solid fa-angle-down" style="padding-left: 150px;"></i></a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href="#">Lista</a>
+                                <a href="#">Lista Completa</a>
                             </li>
                             <li>
                                 <a href="#">Page 2</a>
@@ -72,7 +74,7 @@
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
+                        <i class="fa-solid fa-bars"></i>
                         <span class="sr-only">Toggle Menu</span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

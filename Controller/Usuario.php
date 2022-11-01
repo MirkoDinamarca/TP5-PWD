@@ -1,34 +1,36 @@
 <?php
-class Usuario{
+class Usuario
+{
 
-public function newUsuario($datos) {
-    $objUsuario = new Model_usuario();
+    public function newUsuario($datos)
+    {
+        $objUsuario = new Model_usuario();
 
-    if (isset($datos)) {
+        if (isset($datos)) {
 
-        $validacion = false;
-        $objUsuario->setearValores($datos['idusuario'], $datos['usnombre'], $datos['uspass'], $datos['usmail'], $datos['usdeshabilitado']);
-        
-        if ($objUsuario->Insertar()) {
-            $validacion = true;
+            $validacion = false;
+            $objUsuario->setearValores($datos['idusuario'], $datos['usnombre'], $datos['uspass'], $datos['usmail'], $datos['usdeshabilitado']);
+
+            if ($objUsuario->Insertar()) {
+                $validacion = true;
+            }
+
+
+            return $validacion;
         }
-
-       
-        return $validacion;
     }
-
-}
     /**
      * Este método devuelve una lista de usuarios de la base de datos, filtrada por el id del usuario si se proporciona.
      * @param param array(1) 
      * @return An array de objetos.
      */
-    public function buscar($param = NULL) {
+    public function buscar($param = NULL)
+    {
         $objUsuario = new Model_usuario();
         $where = " true ";
         if ($param != NULL) {
             if (isset($param['idusuario'])) {
-                $where.= " AND idusuario = " . $param['idusuario'];
+                $where .= " AND idusuario = " . $param['idusuario'];
             }
         }
 
@@ -36,15 +38,16 @@ public function newUsuario($datos) {
         return $usuario;
     }
 
-    public function actualizarUsuario($datos) {
+    public function actualizarUsuario($datos)
+    {
         $objUsuario = new Model_usuario();
 
         if (isset($datos)) {
 
             $validacion = false;
             $objUsuario->setearValores($datos['idusuario'], $datos['usnombre'], $datos['uspass'], $datos['usmail'], $datos['usdeshabilitado']);
-            
-            if ( $objUsuario->Modificar()) {
+
+            if ($objUsuario->Modificar()) {
                 $validacion = true;
             }
 
@@ -80,6 +83,4 @@ public function newUsuario($datos) {
         }
         return $eliminacion;
     }
-
-
 }
