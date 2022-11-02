@@ -1,6 +1,6 @@
 <?php
 
-class Session {
+class Sesion {
 
     public function __construct()
     {
@@ -11,9 +11,9 @@ class Session {
     /**
      * Actualiza las variables de sesión con los valores ingresados.
      */
-    public function iniciar($usuario, $password) {
+    public function iniciar($usuario, $pass) {
         $_SESSION['usnombre'] = $usuario;
-        $_SESSION['uspass'] = $password;
+        $_SESSION['uspass'] = $pass;
     }
 
     /**
@@ -23,9 +23,16 @@ class Session {
     public function validar() {
         $rta = false;
 
-        $usuario = new Model_usuario();
+        $usnombre = $_SESSION['usnombre'];
+        $uspass = $_SESSION['uspass'];
 
-        $listaUsuario = $usuario->Listar($_SESSION);
+        $parametros = ['usnombre' => $usnombre, 'uspass' => $uspass];
+        $usuario = new Usuario();
+
+        $listaUsuario = $usuario->buscar($parametros);
+        /* echo '<pre>';
+        var_dump($listaUsuario);
+        echo '</pre>'; */
 
         if ($listaUsuario != NULL) {
             $rta = true;
@@ -90,11 +97,14 @@ class Session {
      * Destruye la sesión
      */
     public function cerrar() {
-
+        $verificacion = false;
         if ($this->activa()) {
             unset($_SESSION['usnombre']);
             unset($_SESSION['uspass']);
             session_destroy();
+            $verificacion = true;
         }
+        return $verificacion;
+
     }
 }

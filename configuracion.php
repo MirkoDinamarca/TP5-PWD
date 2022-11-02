@@ -11,7 +11,9 @@ $PROYECTO ='tp5-pwd';
 $ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
 
 include_once($ROOT.'includes/funciones.php');
+// include_once($ROOT.'View/paginaSegura.php');
 
+$sesion = new Sesion();
 
 // Variable que define la pagina de autenticacion del proyecto
 $INICIO = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/vista/login/login.php";

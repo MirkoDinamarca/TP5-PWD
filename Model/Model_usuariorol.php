@@ -7,6 +7,7 @@ class Model_usuariorol extends BaseDatos {
 
     public function __construct()
     {
+        parent::__construct();
         $this->mensajeOperacion = "";
     }
 

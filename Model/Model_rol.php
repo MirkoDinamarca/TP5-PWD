@@ -6,6 +6,7 @@ class Model_rol extends BaseDatos {
     private $mensajeOperacion;
 
     public function __construct() {
+        parent::__construct();
         $this->idrol = "";
         $this->rodescripcion = "";
         $this->mensajeOperacion = "";

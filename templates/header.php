@@ -1,3 +1,7 @@
+<?php
+include_once('../configuracion.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,7 +97,13 @@
                                 <a class="nav-link" href="#">Roles</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Iniciar Sesión</a>
+                                <?php 
+                                // $sesion = new Sesion();
+                                if ($sesion->activa()) { ?>
+                                    <a class="nav-link" href="../View/accion/cerrarSesion.php">Cerrar Sesión</a>
+                                <?php } else { ?>
+                                    <a class="nav-link" href="../View/login.php">Iniciar Sesión</a>
+                                <?php } ?>
                             </li>
                         </ul>
                     </div>

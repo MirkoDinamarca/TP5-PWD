@@ -32,6 +32,15 @@ class Usuario
             if (isset($param['idusuario'])) {
                 $where .= " AND idusuario = " . $param['idusuario'];
             }
+            if (isset($param['usnombre'])) {
+                $where .= " AND usnombre = '" . $param['usnombre']."'";
+            }
+            if (isset($param['uspass'])) {
+                $where .= " AND uspass = " . $param['uspass'];
+            }
+            if (isset($param['usdeshabilitado'])) {
+                $where .= " AND usdeshabilitado = " . $param['usdeshabilitado'];
+            }
         }
 
         $usuario = $objUsuario->Listar($where);
@@ -82,5 +91,10 @@ class Usuario
             $eliminacion['persona'] = false;
         }
         return $eliminacion;
+    }
+
+    public function metodoPrueba() {
+        $hola = 'Hola esto anda';
+        return $hola;
     }
 }

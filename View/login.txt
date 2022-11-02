@@ -1,3 +1,11 @@
+<?php
+/* session_destroy();
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>'; */
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +23,7 @@
     <div class="m-0 row vh-100 justify-content-center align-items-center">
 
         <div class="col-xs-12 col-md-5" style="padding: 20px; border: 1px solid gray; border-radius: 10px;">
-            <form id="form" class="needs-validation" novalidate action="" method="POST">
+            <form id="form" class="needs-validation" novalidate action="accion/verificarLogin.php" method="POST">
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Usuario</label>
