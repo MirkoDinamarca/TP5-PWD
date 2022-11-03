@@ -156,7 +156,6 @@ class BaseDatos extends PDO {
        if(!$resultado){
            $this->analizarDebug();
        }else {
-         
           $arregloResult = $resultado->fetchAll();
           $cant = count($arregloResult);
           $this->setIndice(0);

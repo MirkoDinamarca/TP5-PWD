@@ -11,8 +11,8 @@ $PROYECTO ='tp5-pwd';
 $ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
 
 include_once($ROOT.'includes/funciones.php');
-// include_once($ROOT.'View/paginaSegura.php');
 
+require('vendor/autoload.php');
 $sesion = new Sesion();
 
 // Variable que define la pagina de autenticacion del proyecto

@@ -11,9 +11,10 @@ class Sesion {
     /**
      * Actualiza las variables de sesión con los valores ingresados.
      */
-    public function iniciar($usuario, $pass) {
+    public function iniciar($idusuario, $usuario) {
+        $_SESSION['idusuario'] = $idusuario;
         $_SESSION['usnombre'] = $usuario;
-        $_SESSION['uspass'] = $pass;
+        return true;
     }
 
     /**

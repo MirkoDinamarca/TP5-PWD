@@ -1,4 +1,7 @@
 <?php
+
+use Rakit\Validation\Validator;
+
 class Usuario
 {
 
@@ -24,27 +27,45 @@ class Usuario
      * @param param array(1) 
      * @return An array de objetos.
      */
-    public function buscar($param = NULL)
+    public function buscar($param)
     {
         $objUsuario = new Model_usuario();
-        $where = " true ";
-        if ($param != NULL) {
+        $validator = new Validator();
+        $data = [];
+
+        $validator->setMessages([
+            'required' => 'El campo :attribute es requerido',
+        ]);
+
+        $validation = $validator->make($param, [
+            'usnombre' => 'required',
+            'uspass' => 'required',
+        ]);
+
+        // Validando datos
+        $validation->validate();
+
+        if ($validation->fails()) {
+            $errors = $validation->errors();
+            $data['errores'] = $errors->firstOfAll();
+        } else {
+            $where = " true ";
             if (isset($param['idusuario'])) {
                 $where .= " AND idusuario = " . $param['idusuario'];
             }
             if (isset($param['usnombre'])) {
-                $where .= " AND usnombre = '" . $param['usnombre']."'";
+                $where .= " AND usnombre = '" . $param['usnombre'] . "'";
             }
             if (isset($param['uspass'])) {
-                $where .= " AND uspass = " . $param['uspass'];
+                $where .= " AND uspass = '" . $param['uspass'] . "'";
             }
             if (isset($param['usdeshabilitado'])) {
                 $where .= " AND usdeshabilitado = " . $param['usdeshabilitado'];
             }
+            $data['usuario'] = $objUsuario->Listar($where);
         }
 
-        $usuario = $objUsuario->Listar($where);
-        return $usuario;
+        return $data;
     }
 
     public function actualizarUsuario($datos)
@@ -93,7 +114,8 @@ class Usuario
         return $eliminacion;
     }
 
-    public function metodoPrueba() {
+    public function metodoPrueba()
+    {
         $hola = 'Hola esto anda';
         return $hola;
     }

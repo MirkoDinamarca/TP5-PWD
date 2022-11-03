@@ -5,12 +5,15 @@ include_once('../../configuracion.php');
 $datos = $_POST;
 
 $sesion = new Sesion();
+$objUsuario = new Usuario();
 
-$sesion->iniciar($datos['usnombre'], $datos['uspass']);
-$verificacion = $sesion->validar();
+$parametro = ['usnombre' => $datos['usnombre'], 'uspass' => $datos['uspass']];
+$usuarioExistente = $objUsuario->buscar($parametro);
 
-if ($verificacion) {
+// if (!empty($usuarioExistente['usuario'])) {
+if (isset($usuarioExistente['usuario'])) {
+    $sesion->iniciar($usuarioExistente['usuario'][0]->getIdUsuario(), $usuarioExistente['usuario'][0]->getUserNombre());
     Header('Location: ../paginaSegura.php');
+} else {
+    Header('Location: ../login.php');
 }
-
-?>

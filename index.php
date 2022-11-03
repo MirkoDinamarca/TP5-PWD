@@ -92,6 +92,9 @@ include_once('configuracion.php');
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Inicio</a>
                             </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="View/login.php">Iniciar Sesión</a>
+                            </li>
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="View/listarUsuario.php">Usuarios</a>
                             </li> -->
@@ -105,11 +108,11 @@ include_once('configuracion.php');
 
                 </div>
 
-                <div class="dropdown" >
+                <!-- <div class="dropdown" >
                     <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">Iniciar Sesión</p>
-                    <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                     Dropdown form
-                </button> -->
+                </button>
                     <form style="width: 300px;" class="dropdown-menu p-4">
                         <div class="mb-3">
                             <label for="exampleDropdownFormEmail2" class="form-label">E-Mail</label>
@@ -121,7 +124,7 @@ include_once('configuracion.php');
                         </div>
                         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                     </form>
-                </div>
+                </div> -->
             </nav>
 
 
