@@ -23,7 +23,7 @@ echo '</pre>'; */
     <div class="m-0 row vh-100 justify-content-center align-items-center">
 
         <div class="col-xs-12 col-md-5" style="padding: 20px; border: 1px solid gray; border-radius: 10px;">
-            <form id="form" class="needs-validation" novalidate action="accion/verificarLogin.php" method="POST">
+            <form id="form" class="needs-validation" novalidate method="POST">
 
                 <div style="text-align: center;">
                     <span style="color:red;">El usuario y/o contraseña incorrectos</span>
@@ -62,14 +62,17 @@ echo '</pre>'; */
 <script src="../assets/js/main.js"></script>
 
 <script>
-    /* $("form").submit(function(e) {
+
+    
+    $("form").submit(function(e) {
         e.preventDefault();
         $.ajax({
             url: "accion/verificarLogin.php",
-            success: function(result) {
-                let data = json_decode(result);
-                console.log(data);
-            }
+            type: 'POST'
+        })
+        .done(function(data) {
+            let datos = JSON.parse(data);
+            console.log(datos);
         });
-    }); */
+    });
 </script>

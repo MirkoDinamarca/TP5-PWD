@@ -31,9 +31,6 @@ class Sesion {
         $usuario = new Usuario();
 
         $listaUsuario = $usuario->buscar($parametros);
-        /* echo '<pre>';
-        var_dump($listaUsuario);
-        echo '</pre>'; */
 
         if ($listaUsuario != NULL) {
             $rta = true;

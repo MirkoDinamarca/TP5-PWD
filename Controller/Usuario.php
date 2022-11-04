@@ -51,17 +51,23 @@ class Usuario
         } else {
             $where = " true ";
             if (isset($param['idusuario'])) {
-                $where .= " AND idusuario = " . $param['idusuario'];
+                $where .= " AND idusuario = '" . $param['idusuario'] ."'";
             }
             if (isset($param['usnombre'])) {
-                $where .= " AND usnombre = '" . $param['usnombre'] . "'";
+                $where .= " AND usnombre = '" . $param['usnombre'] ."'";
             }
             if (isset($param['uspass'])) {
-                $where .= " AND uspass = '" . $param['uspass'] . "'";
+                $where .= " AND uspass = '" . $param['uspass'] ."'";
+            }
+            if (isset($param['usmail'])) {
+                $where .= " AND usmail = '" . $param['usmail'] ."'";
             }
             if (isset($param['usdeshabilitado'])) {
                 $where .= " AND usdeshabilitado = " . $param['usdeshabilitado'];
             }
+            echo '<pre>';
+            var_dump($where);
+            echo '</pre>';
             $data['usuario'] = $objUsuario->Listar($where);
         }
 

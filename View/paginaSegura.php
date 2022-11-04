@@ -5,10 +5,6 @@ include_once('../templates/header.php');
 
 // $sesion = new Sesion();
 
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
-
 ?>
 
 <form action="accion/cerrarSesion.php" method="POST">
